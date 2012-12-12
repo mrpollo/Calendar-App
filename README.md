@@ -1,4 +1,5 @@
-# Title
+# Calendar App
+This puzzle was sent to me by the Facebook UI Engineering team when I applied for a job back in I think 2010, at that time my entry didn't make it to the second phase in the hiring process, however thats not the point, this is a learning exercise, and lots of fun.
 ## UI Engineering Puzzle
 ### Part I: Write a function (either PHP or JS) to lay out a series of events on the calendar for a single day.
 
