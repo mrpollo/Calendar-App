@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Calendar-app by mrpollo</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/mrpollo/Calendar-App">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/mrpollo/Calendar-App/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/mrpollo/Calendar-App/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Calendar-app</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/mrpollo">mrpollo</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>Calendar App</h1>
+
+<p>This puzzle was sent to me by the Facebook UI Engineering team when I applied for a job back in I think 2010, at that time my entry didn't make it to the second phase in the hiring process, however thats not the point, this is a learning exercise, and lots of fun.</p>
+
+<h2>UI Engineering Puzzle</h2>
+
+<h3>Part I: Write a function (either PHP or JS) to lay out a series of events on the calendar for a single day.</h3>
+
+<p>Events will be placed on a canvas.  The top of the canvas represents 9am and the bottom represents 9pm. The width of the canvas will be 620px (10px padding on either side) and the height will be 720px (1 pixel for every minute between 9am and 9pm). The objects should be laid out so that they do not visually overlap on the canvas. If there is only one event at a given time slot, its width should be 600px.</p>
+
+<p>There are 2 major constraints:</p>
+
+<ul>
+<li>Every colliding event must be the same width as every other event that it collides width.</li>
+<li>An event should use the maximum width possible while still adhering to the first constraint.</li>
+</ul><blockquote>
+<p>See calendar1.png for an example.
+<img src="https://raw.github.com/mrpollo/Calendar-App/master/image.png" alt="calendar1.png"></p>
+</blockquote>
+
+<p>The input to the function will be an array of event objects with the start and end times of the event. Example (JS): </p>
+
+<div class="highlight"><pre><span class="p">[</span>
+    <span class="p">{</span><span class="nx">id</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">start</span> <span class="o">:</span> <span class="mi">60</span><span class="p">,</span> <span class="nx">end</span> <span class="o">:</span> <span class="mi">120</span><span class="p">},</span> <span class="err"> </span><span class="c1">// an event from 10am to 11am </span>
+    <span class="p">{</span><span class="nx">id</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">start</span> <span class="o">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nx">end</span> <span class="o">:</span> <span class="mi">240</span><span class="p">},</span> <span class="c1">// an event from 10:40am to 1pm </span>
+    <span class="p">{</span><span class="nx">id</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">start</span> <span class="o">:</span> <span class="mi">700</span><span class="p">,</span> <span class="nx">end</span> <span class="o">:</span> <span class="mi">720</span><span class="p">}</span> <span class="c1">// an event from 8:40pm to 9pm </span>
+<span class="p">]</span>
+</pre></div>
+
+<p>The function should return an array of event objects that have the left and top positions set (relative to the top left of the canvas), in addition to the id, start, and end time.</p>
+
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> Lays out events for a single  day</span>
+
+<span class="cm"> @param array events</span>
+<span class="cm"> An array of event objects. Each event object consists of a start time, end</span>
+<span class="cm"> Time (measured in minutes) from 9am, as well as a unique id. The</span>
+<span class="cm"> Start and end time of each event will be [0, 720]. The start time will</span>
+<span class="cm"> Be less than the end time.  The array is not sorted.</span>
+
+<span class="cm"> @return array</span>
+<span class="cm"> An array of event objects that has the width, the left and top positions set,</span>
+<span class="cm"> In addition to start time, end time, and id.</span>
+<span class="cm">**/</span>
+
+<span class="nb">Function</span> <span class="err"> </span><span class="nx">layOutDay</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+
+<h3>Part II: Use your function from Part I to create a web page that is styled just like the example image calendar2.png with the following calendar events:</h3>
+
+<blockquote>
+<p>Image 2
+<img src="https://raw.github.com/mrpollo/Calendar-App/master/image2.png" alt="calendar1.png"></p>
+</blockquote>
+
+<ul>
+<li>An event that starts at 9:30am and ends at 11:30am</li>
+<li>An event that starts at 6:00pm and ends at 7:00pm</li>
+<li>An event that starts at 6:20pm and ends at 7:20pm</li>
+<li>An event that starts at 7:10pm pm and ends at 8:10pm</li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
