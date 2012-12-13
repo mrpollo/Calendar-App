@@ -55,7 +55,7 @@ var Calendar = function () {
 		t.textContent = item.title;
 		l = div.cloneNode(false);
 		l.className = 'time';
-		l.textContent = item.location;
+		l.textContent = item.dateTime;
 		e.appendChild(lb);
 		e.appendChild(t);
 		e.appendChild(l);
@@ -178,7 +178,7 @@ var Calendar = function () {
 		this.events = events;
 		this.events.forEach(function (e) {
 			e.title = 'Sample Item';
-			e.location = this.ourDayToHuman(e);
+			e.dateTime = this.ourDayToHuman(e);
 			e.top = e.start;
 			e.height = (e.end - e.start);
 			this.addToMaps(e);
